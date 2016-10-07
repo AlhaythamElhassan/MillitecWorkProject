@@ -1,0 +1,26 @@
+<div class="login" >
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <img src="../stylesheets/img/logo-big.png"/>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" *ngIf="isLogedIn()" (ngSubmit)="OnSubmit()" #loginForm="ngForm">
+            <h3 class="form-title font-green">Welcome {{ userFirstName }}</h3>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-0">
+                    <button type="submit" class="btn green uppercase"
+                            [disabled]="!loginForm.form.valid">Create User</button>
+                    </div>
+                    <div class="col-md-2 col-md-offset-5">
+                        <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- END LOGIN FORM -->
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="login" >
+<!-- BEGIN LOGO -->
+    <div class="logo">
+            <img src="../stylesheets/img/logo-big.png"/>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" *ngIf="!isLogedIn() && active" (ngSubmit)="OnSubmit()" #loginForm="ngForm">
+            <h3 class="form-title font-green">Sign In</h3>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9" for="email">Username</label>
+                <input class="form-control form-control-solid placeholder-no-fix" type="email" autocomplete="off"
+                       placeholder="Email" name="email" id="email" required [(ngModel)]="model.email"
+                #email="ngModel"/> </div>
+            <div [hidden]="email.valid || email.pristine"
+                 class="alert alert-danger">
+                Email is required
+                </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9" for="password">Password</label>
+                <input class="form-control form-control-solid placeholder-no-fix"
+                       type="password" id="password" autocomplete="off" placeholder="Password"
+                       name="password" [(ngModel)]="model.password" required #password="ngModel"/>
+            </div>
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert alert-danger">
+                Password is required
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn green uppercase"
+                [disabled]="!loginForm.form.valid">Login</button>
+                <label class="rememberme check mt-checkbox mt-checkbox-outline">
+                    <input type="checkbox" name="remember" value="1" />Remember
+                    <span></span>
+                </label>
+                <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+            </div>
+        </form>
+        <!-- END LOGIN FORM -->
+    </div>
+</div>
