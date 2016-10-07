@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-2 col-md-offset-0">
                     <button type="submit" class="btn green uppercase"
-                            [disabled]="!loginForm.form.valid">Create User</button>
+                            *ngIf="isLogedIn() && isAdmin()"><a routerLink="./createNewUser">Create User</a></button>
                     </div>
                     <div class="col-md-2 col-md-offset-5">
                         <button class="btn btn-danger" (click)="onLogout()">Logout</button>
@@ -21,6 +21,6 @@
                 </div>
             </div>
         </form>
-        <!-- END LOGIN FORM -->
+        <router-outlet></router-outlet>
     </div>
 </div>
